@@ -15,6 +15,13 @@ module.exports = function(grunt) {
   //
   // You have been warned!
   grunt.initConfig({
+    browserify: {
+      dist: {
+        files: {
+          'static/build/bundle.js': ['static/javascript/**/*.js']
+        }
+      }
+    },
     sass: {
       dev: {
         options: {
@@ -33,10 +40,16 @@ module.exports = function(grunt) {
       sass: {
         files: ['static/scss/**/*.scss'],
         tasks: ['force:on', 'sass', 'force:reset', 'build']
+      },
+      js: {
+        files: ['static/javascript/**/*.js'],
+        tasks: ['force:on', 'browserify', 'force:reset', 'build' ]
       }
     }
 
   });
+
+  grunt.loadNpmTasks( 'grunt-browserify' )
 
   grunt.loadNpmTasks( 'grunt-contrib-sass' );
   

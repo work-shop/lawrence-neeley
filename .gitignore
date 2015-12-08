@@ -15,18 +15,17 @@ results
 
 npm-debug.log
 node_modules
+static/scss/bourbon
+static/scss/neat
 
 /.build
 /.firebase.conf
 
 .sass-cache
 
-static/scss/bourbon
-static/scss/neat
-
-
 .jshintrc
 
-# ignore compiled CSS
+# ignore compiled CSS and JS
 main.css
+bundle.js
 
