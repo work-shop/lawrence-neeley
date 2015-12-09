@@ -35,6 +35,10 @@
         {{ item.publish_date|date('F d Y') }}
       </li>
       <li>
+        <strong>Summary: </strong>
+        {{ item.summary }}
+      </li>
+      <li>
         <strong>Subtopics: </strong>
         {# Relationship. Note that use the label you set for the relation, not the content-type name. #}
         {% for relation in item.subtopics %}
