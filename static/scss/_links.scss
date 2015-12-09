@@ -1,0 +1,30 @@
+a {
+	color: $body-base-color;
+	text-decoration: none;
+	padding-bottom:2px;
+
+	@include transition(all .2s linear);
+
+	&.internal {
+		border-bottom: 5px solid $link-passive-color;
+		background-color: lighten( $link-passive-color, 12.5);
+
+		&:hover {
+			
+			border-color: $internal-active-color;
+			background-color: lighten( $internal-active-color, 35);
+
+		}
+	}
+
+	&.external {
+		border-bottom: 5px solid $link-passive-color;
+
+		&:hover {
+
+			border-color: $external-active-color;
+			background-color: lighten( $external-active-color, 35);
+
+		}
+	}
+}

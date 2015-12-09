@@ -1,1 +1,12 @@
-@import '_style.scss';
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+@import '_variables';
+@import '_reboot';
+@import '_base';
+@import '_objects';
+@import '_typography';
+@import '_grid-objects';
+@import '_links';
+@import '_nav';
+@import '_style';

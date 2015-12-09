@@ -1,0 +1,74 @@
+.aller {
+	font-family: "aller", sans-serif;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.aller-bold {
+	@extend .aller;
+	@extend .bold;
+}
+
+.aller-regular {
+	@extend .aller;
+}
+
+.centered {
+	text-align: center;
+}
+
+.lefted {
+	text-align: left;
+}
+
+.righted {
+	text-align: right;
+}
+
+.light {
+	color: $body-light-color;
+}
+
+body {
+	
+	@extend .aller-regular;
+	font-size: $body-base-size;
+	color: $body-base-color;
+	line-height: 1.3em;
+}
+
+h1, .h1 {
+	font-size: 2em;
+}
+
+h2, .h2 {
+	font-size: 1.8em;
+}
+
+h3, .h3 {
+	font-size: 1.5em;
+}
+
+h4, .h4 {
+	font-size: 1.2em;
+}
+
+h5, .h5 {
+	font-size: .8em;
+}
+
+h6, .h6 {
+	font-size: .6em;
+}
+
+
+p {
+	font-size: 1em;
+}
+

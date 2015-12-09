@@ -1,0 +1,26 @@
+.vertical-offscreen {
+
+	position: absolute;
+
+	
+
+}
+
+.vertical-center {
+
+	position: absolute;
+
+	top:50%;
+
+	@include transform( translateY( -50% ) );
+
+}
+
+.horizontal-center {
+	
+	position: absolute;
+
+	left: 50%;
+
+	@include transform( translateX( -50% ) );
+}

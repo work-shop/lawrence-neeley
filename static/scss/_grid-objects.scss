@@ -1,0 +1,23 @@
+.container {
+	@include outer-container( $max-width );
+}
+
+.row {
+	@include row();
+}
+
+@for $i from 1 through $grid-columns {
+	.col-#{$i} {
+		@include span-columns( $i );
+	}
+
+	.col-offset-#{$i} {
+		@include shift( $i );
+	}
+
+	@for $j from 1 through $grid-columns {
+		.col-#{$i}-of-#{$j} {
+			@include span-columns( $i of $j );
+		}
+	}
+}
