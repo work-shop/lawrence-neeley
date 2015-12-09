@@ -1,0 +1,54 @@
+{% macro statement() %}
+
+<nav id="statement" class="vertical-offscreen">
+
+	<span class="statement-element block">
+
+		<a class="statement-link internal" href="/about" data-invitation="Click to learn more about Lawrence.">Lawrence Neeley</a>
+
+		<span id="lawrence-neeley" class="h5 statement-caption off">
+				
+			<h5>Lawrence Neeley is {% for phrase in cms.home.statement %}{{ phrase.display_text }} {% endfor %}</h5>
+
+		</span>
+
+
+	</span>
+
+	<span>is</span>
+
+	{% for phrase in cms.home.statement %}
+
+		<span class="statement-element block"> 
+
+		{% if phrase.linked_topic %}<a class="statement-link internal" href="{{ url( phrase.linked_topic ) }}" {% if phrase.invitation_text %}data-invitation="{{ phrase.invitation_text }}"{% endif %}>{% endif %}
+		
+		{{ phrase.display_text }} 
+
+		{% if phrase.linked_topic %}</a>{% endif %}
+
+			{% if phrase.linked_topic %}
+			<span id="{{ phrase.linked_topic.name|lower|replace(' ', '-', g) }}" class="h5 statement-caption off">
+
+			<h5>{{ phrase.linked_topic.summary }}</h5>
+			<h6 class="italic">{{ phrase.linked_topic.content_topics|size }} Item{{ phrase.linked_topic.content_topics|size|pluralize('s') }}</h6>
+
+			</span>
+			{% endif %}
+
+		</span>
+
+
+	{% endfor %}
+
+</nav>
+{% endmacro %}
+
+
+{% macro invitation() %}
+
+<aside id="invitation" class="center horizontal-center">
+	<h5 class="italic light off"></h5>
+</aside>
+
+{% endmacro %}
