@@ -78,7 +78,7 @@
 }
 
 .content-text {
-	@include span-columns( 7 );
+	@include span-columns( 8 );
 	@extend .lefted;
 
 	position:absolute;
@@ -86,19 +86,100 @@
 
 	
 }
-	.content-header {
+
+.content-header {
+	z-index: 500;
+}
+
+.content-body {
+	opacity: .25;
+	z-index: 100;
+
+	@include transition(opacity $short-duration ease-in);
+
+	&.active {
+		opacity: 1;
 		z-index: 500;
 	}
 
-	.content-body {
-		opacity: .25;
-		z-index: 100;
+	h1 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: 1.5em;
+	}
 
-		&.active {
-			opacity: 1;
-			z-index: 500;
+	h2 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: 1.2em;
+	}
+
+	h3 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: 1em; 
+	}
+
+	h4 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: .9em;
+	}
+
+	h5 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: .8em;
+	}
+
+	h6 {
+		@extend .regular;
+		@extend .mb2;
+		font-size: .6em;
+	}
+
+	p {
+		@extend .light;
+		font-size: .8em;
+	}
+
+	li {
+		@extend .mb1;
+	}
+
+	li:before {
+		@extend .aller;
+		@extend .regular;
+		@extend .h5;
+
+		position:absolute;
+		left: -50px;
+	}
+
+	ol, ul {
+		@extend .mb3;
+		
+		position: relative;
+		padding: 0; margin: 0;
+		list-style:none;
+
+
+		li:before {
+			content:"-";
 		}
 	}
+
+	ol {
+		counter-reset: li;
+
+		li:before {
+			counter-increment: li;
+			content: counter(li)".";
+		}
+
+	}
+
+}
 
 .content-images {
 	@include span-columns( 6 );
@@ -110,6 +191,10 @@
 
 	z-index: 100;
 
+	overflow: scroll;
+
+	@include transition(opacity $short-duration ease-in);
+
 	&.active {
 		opacity: 1;
 		z-index: 500;
@@ -119,6 +204,8 @@
 		width:100%;
 		list-style: none;
 		margin: 0; padding: 0;
+
+		cursor: ns-resize;
 
 		li {
 			@extend .mb2;
