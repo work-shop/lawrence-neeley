@@ -1,6 +1,6 @@
 {% macro statement() %}
 
-<nav id="statement" class="vertical-offscreen">
+<nav id="statement">
 
 	<span class="statement-element block">
 
@@ -21,7 +21,7 @@
 
 		<span class="statement-element block"> 
 
-		{% if phrase.linked_topic %}<a class="statement-link internal" href="{{ url( phrase.linked_topic ) }}" {% if phrase.invitation_text %}data-invitation="{{ phrase.invitation_text }}"{% endif %}>{% endif %}
+		{% if phrase.linked_topic %}<a class="statement-link internal {% if getCurrentUrl() == url( phrase.linked_topic ) %}active{% endif %}" href="{{ url( phrase.linked_topic ) }}" {% if phrase.invitation_text %}data-invitation="{{ phrase.invitation_text }}"{% endif %}>{% endif %}
 		
 		{{ phrase.display_text }} 
 

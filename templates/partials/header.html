@@ -1,0 +1,12 @@
+{% import 'templates/partials/nav.html' as nav %}
+
+{%if getCurrentUrl() != '/' %}
+
+	<header class="container pt1 pb2">
+
+		{{ nav.statement() }}
+
+	</header>
+
+{% endif %}
+
