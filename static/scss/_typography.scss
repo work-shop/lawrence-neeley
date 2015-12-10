@@ -2,8 +2,16 @@
 	font-family: "aller", sans-serif;
 }
 
+.light {
+	font-weight: 300;
+}
+
+.regular {
+	font-weight: 400;
+}
+
 .bold {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .italic {
@@ -17,6 +25,12 @@
 
 .aller-regular {
 	@extend .aller;
+	@extend .regular;
+}
+
+.aller-light {
+	@extend .aller;
+	@extend .light;
 }
 
 .centered {
@@ -41,6 +55,7 @@ body {
 	font-size: $body-base-size;
 	color: $body-base-color;
 	line-height: 1.3em;
+	letter-spacing: .06em;
 }
 
 h1, .h1 {
@@ -68,7 +83,7 @@ h6, .h6 {
 }
 
 
-p {
+p, .p {
 	font-size: 1em;
 }
 

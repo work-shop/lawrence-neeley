@@ -1,8 +1,12 @@
+/**
+ * These selectors deal with spcifiying the
+ * vertical and horizontal positions relative to
+ * the parent position: relative container.
+ */
+
 .vertical-offscreen {
 
 	position: absolute;
-
-	
 
 }
 
@@ -24,3 +28,64 @@
 
 	@include transform( translateX( -50% ) );
 }
+
+/**
+ * These selectors deal with adding margins,
+ * borders and padding to block element.
+ */
+
+@for $i from 1 through 10 {
+
+	.mt#{$i} {
+		margin-top: #{$i}em;
+	}
+
+	.mb#{$i} {
+		margin-bottom: #{$i}em;
+	}
+
+	.ml#{$i} {
+		margin-left: #{$i}em;
+	}
+
+	.mr#{$i} {
+		margin-right: #{$i}em;
+	}
+
+	.m#{$i} {
+		@extend .mt#{$i} !optional;
+		@extend .mb#{$i} !optional;
+		@extend .ml#{$i} !optional;
+		@extend .mr#{$i} !optional;
+	}
+
+}
+
+@for $i from 1 through 10 {
+
+	.pt#{$i} {
+		padding-top: #{$i}em;
+	}
+
+	.pb#{$i} {
+		padding-bottom: #{$i}em;
+	}
+
+	.pl#{$i} {
+		padding-left: #{$i}em;
+	}
+
+	.pr#{$i} {
+		padding-right: #{$i}em;
+	}
+
+	.p#{$i} {
+		@extend .pt#{$i} !optional;
+		@extend .pb#{$i} !optional;
+		@extend .pl#{$i} !optional;
+		@extend .pr#{$i} !optional;
+	}
+
+}
+
+

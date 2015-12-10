@@ -1,0 +1,54 @@
+#topic-container {
+	@extend .mt2;
+	@include outer-container();
+}
+
+#topic {
+	@include span-columns(12);
+
+}
+
+#topic-stamp {
+
+	@include span-columns(5 of 12);
+	
+	ol {
+
+		counter-reset: li;
+		margin-left:0;
+		padding-left:0;
+
+		li:before {
+			@extend .aller;
+			@extend .regular;
+			@extend .h5;
+
+			counter-increment: li;
+			content: counter( li )"." ;
+			position: absolute;
+			left: -50px;
+		}
+
+		li.topic-definition-heading:before {
+			@extend .aller;
+			@extend .regular;
+			@extend .h4;
+
+			counter-increment: li;
+			content: counter( li )"." ;
+			position: absolute;
+			left: -50px;
+		}
+
+		li {
+			position: relative;
+			list-style: none;
+		}
+	}
+}
+
+#topic-content {
+
+	@include span-columns(10 of 12);
+
+}

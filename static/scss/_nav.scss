@@ -1,4 +1,19 @@
+nav {
+
+	position: static;
+	
+	font-size: .75em;
+
+	@include transition( translateY .2s ease-in);
+
+	& span .statement-caption {
+		display: none;
+	}
+}
+
 #home > nav {
+
+	font-size: 1em;
 
 	width:100%;
 	text-align: center;
@@ -6,11 +21,16 @@
 	@include transition( translateY .2s ease-in);
 
 	& span {
+		
 		position: relative;
+		
 		top: 0px;
+
 		left: 0px;
 
 		& .statement-caption {
+
+			display: block;
 
 			width: 200px;
 

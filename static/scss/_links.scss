@@ -27,4 +27,11 @@ a {
 
 		}
 	}
+
+	&.active {
+
+		border-color: $internal-active-color;
+		background-color: lighten( $internal-active-color, 35);
+		
+	}
 }
