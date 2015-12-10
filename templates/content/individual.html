@@ -1,64 +1,48 @@
-{# ------------------------------------------------------- #}
-{# INDIVIDUAL VIEW FOR EACH content #}
-{# This page can use any data from http:localhost:2000/cms/#/form/content/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+
 {% extends "templates/partials/base.html" %}
-{# This sets our page <title>. It will append this content's name to the site title defined in base.html #}
+
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-  <p><a href="{{ url('content') }}">View a list of all content</a></p>
-  <h1>{{ item.name }}</h1>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
+
+<article id="{{ item.name|lower|replace(' ', '-', 'g') }}" class="content mt4">
+  
+  <section class="content-text">
+    <section class="content-header mb4">
+      <h5 class="light gray">{{ item.publish_date|date('d . m . y') }}</h5>
+      <h1 class="mb1"><a class="internal" href="{{ getCurrentUrl() }}">{{ item.name }}</a></h1>
+      <ul class="content-topic-list">
+      {% for topic in item.topics %}
+    
+      <li class="content-topic"><a class="internal" href="{{ url( topic ) }}" {% if topic.invitation %}data-invitation="{{ topic.invitation }}"{% endif %}>{{ topic.name }}</a></li>
+  
+      {% endfor %}
+      </ul>
+    </section>
+    
+    {% if item.body %}    
+    <section class="content-body active">
+
+      {{ item.body|markdown }}
+
+    </section>
+    {% endif %}
+  </section>
+
+
+  {% if item.images|size > 0 %}
+  <section class="content-images {% if !item.body %}active{% endif %}">
+    <ul class="content-images-list">
+      {% for image in item.images %}
+
+      <li class="content-image">
+        <img src="{{ image|imageSize(1000,auto)}}" />
       </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Topics: </strong>
-        {# Relationship. Note that use the label you set for the relation, not the content-type name. #}
-        {% for relation in item.topics %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(relation) }}">{{ relation.name }}</a>{% if not loop.last %},{% endif %}
-        {% endfor %}
-      </li>
-      <li>
-        <strong>Body: </strong>
-        {{ item.body|markdown }}
-      </li>
-      <li>
-        <strong>Images: </strong>
-        {# You can pull out a lot more information from the gallery property. Info here: #}
-        {# http://www.webhook.com/docs/widget-template-reference/#image #}
-        <ul>
-          {% for image in item.images %}
-            <li>
-              {# You can get the raw image url by accessing image.url #}
-              <img src="{{ image|imageSize(200, 200) }}">
-              <div>{{ image.caption }}</div>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-  </ul>
+
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  
+</article>
+
 {% endblock %}

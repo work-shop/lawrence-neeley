@@ -1,5 +1,7 @@
 {% import "templates/partials/nav.html" as nav %}
 
+{% import "templates/partials/content-cards.html" as content %}
+
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
@@ -11,9 +13,9 @@
   <article id="topic-container">
     <section id="topic">
 
-      <div id="topic-stamp">
+      <div id="topic-name"><h2 class="mb1"><a class="internal active bold" href="{{ url( item ) }}">{{ item.name }}</a></h2></div>
 
-          <h2 class="mb2"><a class="internal" href="{{ url( item ) }}">{{ item.name }}</a></h2>
+      <div id="topic-stamp">
 
           {% if item.definitions|size > 0 %}
           <ol id="topic-definitions">
@@ -30,7 +32,19 @@
         
       </div>
 
-      <div id="topic-content">
+      <div id="topic-content-left" >
+
+          {{ content.card( item.content_topics|first, "left" ) }}
+        
+      </div>
+
+      <div id="topic-content-below" class="mt2">
+
+        {% for contentItem in item.content_topics|slice(1, item.content_topics|size ) %}
+
+          {{ content.card( contentItem, "below" ) }}
+
+        {% endfor %}
         
       </div>
       

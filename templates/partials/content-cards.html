@@ -1,6 +1,12 @@
 {% macro card( content, position ) %}
 		<article id="{{ content.name|lower|replace(' ', '-', g) }}" class="content-card content-card-{{ position }}">
-			<h5 class="content-card-title"><a class="content-link internal" href="{{ url( content ) }}">{{ content.name }}</a></h5>
+
+
+			<div class="content-card-title">
+				<h6 class="light gray mb0">{{ content.publish_date|date('d . m . y') }}</h6>
+				<h5 class="mt0"><a class="content-link internal" href="{{ url( content ) }}">{{ content.name }}</a></h5>
+			</div>
+
 			<ul class="content-card-topic-list mb2">
 				{% for topic in content.topics %}
 

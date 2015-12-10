@@ -21,7 +21,7 @@
 
 		<span class="statement-element block"> 
 
-		{% if phrase.linked_topic %}<a class="statement-link internal {% if getCurrentUrl() == url( phrase.linked_topic ) %}active{% endif %}" href="{{ url( phrase.linked_topic ) }}" {% if phrase.invitation_text %}data-invitation="{{ phrase.invitation_text }}"{% endif %}>{% endif %}
+		{% if phrase.linked_topic %}<a class="statement-link internal {% if getCurrentUrl() == url( phrase.linked_topic ) %}active{% endif %}" href="{{ url( phrase.linked_topic ) }}" {% if phrase.linked_topic.invitation %}data-invitation="{{ phrase.linked_topic.invitation }}"{% endif %}>{% endif %}
 		
 		{{ phrase.display_text }} 
 
@@ -31,7 +31,7 @@
 			<span id="{{ phrase.linked_topic.name|lower|replace(' ', '-', g) }}" class="h5 statement-caption off">
 
 			<h5>{{ phrase.linked_topic.summary }}</h5>
-			<h6 class="italic">{{ phrase.linked_topic.content_topics|size }} Item{{ phrase.linked_topic.content_topics|size|pluralize('s') }}</h6>
+			<h6 class="italic">{{ phrase.linked_topic.content_topics|size }} note{{ phrase.linked_topic.content_topics|size|pluralize('s') }}.</h6>
 
 			</span>
 			{% endif %}
