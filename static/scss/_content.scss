@@ -1,0 +1,67 @@
+.content-card {
+	position:relative;
+	z-index: 500;
+
+	ol, ul {
+		padding: 0;
+	} 
+}
+
+.content-card-left {
+	@include span-columns( 6 of 7 );
+
+}
+
+.content-card-below {
+	@include span-columns( 5 of 10 );
+
+}
+
+.content-card-title {
+	width:50%;
+	line-height: 2em;
+}
+
+.content-card-topic-list {
+	list-style: none;
+	padding: 0;
+
+	li {
+		display: inline;
+		@extend .mr1;
+	}
+
+}
+
+// content
+
+.content-card-summary {
+
+	p {
+		font-size: .8em;
+		@extend .light;
+		@extend .light;
+	}
+
+}
+
+.content-card-image-list {
+	position: absolute;
+	top:0;
+	left:55%;
+	width: 50%;
+	height: 100%;
+	z-index: -250;
+
+	opacity: .25;
+
+	list-style: none;
+	overflow: hidden;
+
+
+	li {
+		z-index: -250;
+		width:100%;
+	}
+}
+	

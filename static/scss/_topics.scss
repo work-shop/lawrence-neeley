@@ -8,6 +8,11 @@
 
 }
 
+#topic-name {
+	@include span-columns(12 of 12);
+	border-bottom: 20px solid inherit;
+}
+
 #topic-stamp {
 
 	@include span-columns(5 of 12);
@@ -47,8 +52,15 @@
 	}
 }
 
-#topic-content {
 
+#topic-content-left {
+	@include shift(1 of 12);
+	@include span-columns(5 of 12);
+	
+}
+
+#topic-content-below {
+	@include shift( 1 of 12 );
 	@include span-columns(10 of 12);
-
+	
 }
