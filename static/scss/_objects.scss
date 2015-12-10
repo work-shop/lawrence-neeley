@@ -34,7 +34,7 @@
  * borders and padding to block element.
  */
 
-@for $i from 1 through 10 {
+@for $i from 0 through 10 {
 
 	.mt#{$i} {
 		margin-top: #{$i}em;
@@ -61,7 +61,7 @@
 
 }
 
-@for $i from 1 through 10 {
+@for $i from 0 through 10 {
 
 	.pt#{$i} {
 		padding-top: #{$i}em;

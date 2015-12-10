@@ -1,3 +1,7 @@
+/**
+ * Content Cards
+ */
+
 .content-card {
 	position:relative;
 	z-index: 500;
@@ -8,7 +12,7 @@
 }
 
 .content-card-left {
-	@include span-columns( 6 of 7 );
+	@include span-columns( 7 of 7 );
 
 }
 
@@ -22,7 +26,7 @@
 	line-height: 2em;
 }
 
-.content-card-topic-list {
+.content-card-topic-list, .content-topic-list {
 	list-style: none;
 	padding: 0;
 
@@ -32,8 +36,6 @@
 	}
 
 }
-
-// content
 
 .content-card-summary {
 
@@ -64,4 +66,90 @@
 		width:100%;
 	}
 }
+
+/**
+ * Content Page
+ */
+
+.content {
+	@include outer-container();
+	position: relative;
+	top: 0; left: 0;
+}
+
+.content-text {
+	@include span-columns( 7 );
+	@extend .lefted;
+
+	position:absolute;
+	top: 0; left: 0;
+
 	
+}
+	.content-header {
+		z-index: 500;
+	}
+
+	.content-body {
+		opacity: .25;
+		z-index: 100;
+
+		&.active {
+			opacity: 1;
+			z-index: 500;
+		}
+	}
+
+.content-images {
+	@include span-columns( 6 );
+	@extend .righted;
+
+	position: absolute;
+	top: 0; right: 0;
+	opacity: .25;
+
+	z-index: 100;
+
+	&.active {
+		opacity: 1;
+		z-index: 500;
+	}
+
+	ul {
+		width:100%;
+		list-style: none;
+		margin: 0; padding: 0;
+
+		li {
+			@extend .mb2;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
