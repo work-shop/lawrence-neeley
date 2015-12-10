@@ -1,0 +1,29 @@
+{% macro card( content, position ) %}
+		<article id="{{ content.name|lower|replace(' ', '-', g) }}" class="content-card content-card-{{ position }}">
+			<h5 class="content-card-title"><a class="content-link internal" href="{{ url( content ) }}">{{ content.name }}</a></h5>
+			<ul class="content-card-topic-list mb2">
+				{% for topic in content.topics %}
+
+					<li class="h6"><a class="internal {% if url( topic ) == getCurrentUrl()  %}active{% endif %}" href="{{ url( topic ) }}">{{ topic.name }}</a></li>
+
+				{% endfor %}
+			</ul>
+
+			<div class="content-card-summary">
+
+			<p>{{ content.summary }}</p>
+
+			</div>
+
+			{% if content.images %}
+			<ul class="content-card-image-list">
+				{% for image in content.images %}
+				<li class="content-card-image-item">
+					<img src="{{ image|imageSize(100,auto) }}" />
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+		</article>
+{% endmacro %}
