@@ -1,82 +1,44 @@
-{# ------------------------------------------------------- #}
-{# INDIVIDUAL VIEW FOR EACH topics #}
-{# This page can use any data from http:localhost:2000/cms/#/form/topics/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% import "templates/partials/nav.html" as nav %}
+
 {% extends "templates/partials/base.html" %}
-{# This sets our page <title>. It will append this topics's name to the site title defined in base.html #}
+
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
+
+{% block body_attributes %}class="{{ item.name|lower|replace(' ', '-', g ) }}"{% endblock %}
+
 {% block content %}
-  <p><a href="{{ url('topics') }}">View a list of all topics</a></p>
-  <h1>{{ item.name }}</h1>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Summary: </strong>
-        {{ item.summary }}
-      </li>
-      <li>
-        <strong>Subtopics: </strong>
-        {# Relationship. Note that use the label you set for the relation, not the content-type name. #}
-        {% for relation in item.subtopics %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(relation) }}">{{ relation.name }}</a>{% if not loop.last %},{% endif %}
-        {% endfor %}
-      </li>
-      <li>
-        <strong>Definitions: </strong>
-        {# Loop of your Repeatable Form items. Remember, you can sort the order in your CMS if you need. #}
-        <ul>
-        {% for row in item.definitions %}
-            <li>
-              <strong>Definition Heading: </strong>
-              {{ row.definition_heading }}
-            </li>
-            <li>
-              <strong>Definition: </strong>
-              {{ row.definition }}
-            </li>
-        {% endfor %}
-        </ul>
-      </li>
-      <li>
-        <strong>Content (Topics): </strong>
-        {# Relationship. Note that use the label you set for the relation, not the content-type name. #}
-        {% for relation in item.content_topics %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(relation) }}">{{ relation.name }}</a>{% if not loop.last %},{% endif %}
-        {% endfor %}
-      </li>
-      <li>
-        <strong>Preview URL: </strong>
-        {{ item.preview_url }}
-      </li>
-      <li>
-        <strong>Slug: </strong>
-        {{ item.slug }}
-      </li>
-  </ul>
+
+  <article id="topic-container">
+    <section id="topic">
+
+      <div id="topic-stamp">
+
+          <h2 class="mb2"><a class="internal" href="{{ url( item ) }}">{{ item.name }}</a></h2>
+
+          {% if item.definitions|size > 0 %}
+          <ol id="topic-definitions">
+          {% for term in item.definitions %}
+
+          <li class="{% if term.definition_heading %}topic-definition-heading{% endif %} topic-definition mb1">
+            {% if term.definition_heading %}<h4 class="light">{{ term.definition_heading }}</h4>{% endif %}
+            <h5 class="light">{{ term.definition }}</h5>
+          </li>
+
+          {% endfor %}
+          </ol>
+          {% endif %}
+        
+      </div>
+
+      <div id="topic-content">
+        
+      </div>
+      
+    </section>
+  </article>
+
+  <section class="invitation">
+    
+  </section>
+
 {% endblock %}
