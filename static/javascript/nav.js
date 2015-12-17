@@ -25,15 +25,3 @@ $('#home .statement-link').on('mouseout', function() {
 		.addClass('off');
 
 });
-
-$( '.internal' )
-	.on( 'mouseover', function() {
-
-		$( '#invitation' ).find('h5').text( $(this).data('invitation') ).removeClass('off').addClass('on');
-
-	})
-	.on('mouseout', function() {
-
-		$( '#invitation' ).find('h5').removeClass('on').addClass('off').text('');
-
-	});
