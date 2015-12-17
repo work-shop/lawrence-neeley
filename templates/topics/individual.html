@@ -1,5 +1,7 @@
 {% import "templates/partials/nav.html" as nav %}
 
+{% import "templates/partials/anchors.html" as a %}
+
 {% import "templates/partials/content-cards.html" as content %}
 
 {% extends "templates/partials/base.html" %}
@@ -10,10 +12,10 @@
 
 {% block content %}
 
-  <article id="topic-container">
+  <article id="topic-container" class="eighty">
     <section id="topic">
 
-      <div id="topic-name"><h2 class="mb1"><a class="internal active bold" href="{{ url( item ) }}">{{ item.name }}</a></h2></div>
+      <div id="topic-name"><h2 class="mb1">{{ a.internal( item, 'active bold' ) }}</h2></div>
 
       <div id="topic-stamp">
 
@@ -51,8 +53,6 @@
     </section>
   </article>
 
-  <section class="invitation">
-    
-  </section>
+  {{ nav.invitation() }}
 
 {% endblock %}

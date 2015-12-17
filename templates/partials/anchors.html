@@ -1,0 +1,11 @@
+{% macro internal( linked, classes ) %}
+	
+	{% if linked %}
+
+		<a class="internal{% if classes %} {{classes}}{% endif %}" href="{{ url( linked ) }}" {% if linked.invitation %}data-invitation="{{ linked.invitation }}" {% endif %}>
+			{{ linked.name }}
+		</a>
+
+	{% endif %}
+
+{% endmacro %}

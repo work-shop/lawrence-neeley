@@ -1,3 +1,6 @@
+{% import "templates/partials/anchors.html" as a %}
+
+{% import "templates/partials/nav.html" as nav %}
 
 {% extends "templates/partials/base.html" %}
 
@@ -7,13 +10,13 @@
 <article id="{{ item.name|lower|replace(' ', '-', 'g') }}" class="content mt4">
   
   <section class="content-text">
-    <section class="content-header mb4">
-      <h5 class="light gray">{{ item.publish_date|date('d . m . y') }}</h5>
-      <h1 class="mb1"><a class="internal" href="{{ getCurrentUrl() }}">{{ item.name }}</a></h1>
+    <section class="content-header mb2">
+      <h5 class="light gray">{{ item.publish_date|date('m . d . y') }}</h5>
+      <h1 class="mb1">{{ a.internal( item ) }}</h1>
       <ul class="content-topic-list">
       {% for topic in item.topics %}
     
-      <li class="content-topic"><a class="internal" href="{{ url( topic ) }}" {% if topic.invitation %}data-invitation="{{ topic.invitation }}"{% endif %}>{{ topic.name }}</a></li>
+      <li class="content-topic">{{ a.internal( topic, "small" ) }}</li>
   
       {% endfor %}
       </ul>
@@ -30,7 +33,7 @@
 
 
   {% if item.images|size > 0 %}
-  <section class="eighty content-images {% if !item.body %}active{% endif %}">
+  <section class="eighty content-images {% if !item.body %}active wide{% endif %}">
     <ul class="content-images-list">
       {% for image in item.images %}
 
