@@ -1,0 +1,25 @@
+@media screen and (min-width: $lg-break) {
+	body {
+		background-color: green;
+	}
+
+}
+
+@media screen and (max-width: $lg-break ) {
+	body {
+		background-color: yellow;
+	}
+}
+
+
+@media screen and (max-width: $sm-break) {
+	body {
+		background-color: red;
+	}
+}
+
+@media screen and (max-width: $xs-break) {
+	body {
+		background-color: blue;
+	}
+}

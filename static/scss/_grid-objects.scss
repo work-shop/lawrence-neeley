@@ -21,3 +21,29 @@
 		}
 	}
 }
+
+@media screen and (min-width: $lg-break) {
+	.container {
+		@include outer-container( $max-width-lg );
+	}
+
+}
+
+@media screen and (max-width: $lg-break ) {
+	.container {
+		@include outer-container( $max-width-md );
+	}
+}
+
+
+@media screen and (max-width: $sm-break) {
+	.container {
+		@include outer-container( $max-width-sm );
+	}
+}
+
+@media screen and (max-width: $xs-break) {
+	.container {
+		@include outer-container( $max-width-xs );
+	}
+}

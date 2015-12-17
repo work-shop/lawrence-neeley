@@ -23,8 +23,15 @@ $invitation-color: #F3F315;
 $short-duration: .2s;
 $long-duration: .5s;
 
-$max-width: 960px;
-
 $table-bg: gray;
 $table-cell-padding: 2px;
 $text-muted:#454545;
+
+$lg-break: 1050px;
+$sm-break:762px;
+$xs-break:520px;
+
+$max-width-lg: $lg-break - 100px;
+$max-width-md: $sm-break - 100px;
+$max-width-sm: $xs-break - 100px;
+$max-width-xs: 280px;

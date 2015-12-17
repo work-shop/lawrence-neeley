@@ -68,12 +68,56 @@
 	}
 }
 
+
+@media screen and (min-width: $lg-break) {
+
+
+}
+
+@media screen and (max-width: $lg-break ) {
+
+}
+
+
+@media screen and (max-width: $sm-break) {
+	.content-card-summary {
+		display: none;
+	}
+
+	.content-card-image-list {
+	
+	}
+
+	.content-card-left {
+		@include span-columns( 12 of 12 );
+
+	}
+
+	.content-card-below {
+		@include span-columns( 12 of 12 );
+
+	}
+
+
+
+	.content-card-title {
+		width:100%;
+	}
+
+}
+
+@media screen and (max-width: $xs-break) {
+
+}
+
+
+
+
 /**
  * Content Page
  */
 
 .content {
-	@include outer-container();
 	position: relative;
 	top: 0; left: 0;
 }
@@ -230,15 +274,6 @@
 .content-images.wide {
 	@include span-columns( 8 );
 }
-	
-
-
-
-
-
-
-
-
 
 
 

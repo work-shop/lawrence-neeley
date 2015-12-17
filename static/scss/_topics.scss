@@ -1,6 +1,5 @@
 #topic-container {
 	@extend .mt2;
-	@include outer-container();
 }
 
 #topic {
@@ -62,4 +61,35 @@
 	@include shift( 1 of 12 );
 	@include span-columns(10 of 12);
 	
+}
+
+@media screen and (min-width: $lg-break) {
+
+
+}
+
+@media screen and (max-width: $lg-break ) {
+
+}
+
+
+@media screen and (max-width: $sm-break) {
+	#topic-stamp {
+		@include span-columns(12 of 12);
+	}
+
+	#topic-content-left {
+		@include span-columns(12);
+		
+	}
+
+	
+	#topic-content-below {
+		@include span-columns(12);
+	}
+
+}
+
+@media screen and (max-width: $xs-break) {
+
 }
