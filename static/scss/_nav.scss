@@ -47,15 +47,3 @@ nav {
 
 	
 }
-
-#invitation {
-	@include transition( opacity .2s ease-in);
-}
-
-.on {
-	opacity: 1;
-}
-
-.off {
-	opacity: 0;
-}
