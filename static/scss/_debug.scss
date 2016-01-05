@@ -1,25 +1,37 @@
+#debug-state {
+
+	position: fixed;
+	right:5%;
+	bottom:5%;
+	width:25px;
+	height:25px;
+	z-index: 5000;
+
+}
+
 @media screen and (min-width: $lg-break) {
-	body {
+	#debug-state {
 		background-color: green;
 	}
 
 }
 
 @media screen and (max-width: $lg-break ) {
-	body {
+	#debug-state {
 		background-color: yellow;
 	}
 }
 
 
 @media screen and (max-width: $sm-break) {
-	body {
+	#debug-state {
 		background-color: red;
 	}
 }
 
 @media screen and (max-width: $xs-break) {
-	body {
+	#debug-state {
 		background-color: blue;
 	}
 }
+

@@ -11,11 +11,16 @@
 	// background-color: lighten( $invitation-color, 30);
 	// border: 1px solid $invitation-color;
 
-	border: 2px solid $link-passive-color;
+	border: 1px solid $link-passive-color;
 	background-color: lighten( $link-passive-color, 12.5);
 
 	@include border-top-radius( 8px );
 	@include border-bottom-radius( 8px );
+
+	&.active {
+		border-color: $invitation-color;
+		background-color: lighten( $invitation-color, 30);
+	}
 }
 
 #invitation {
