@@ -1,7 +1,9 @@
-a {
+a, .title {
 	color: $body-base-color;
 	text-decoration: none;
 	padding-bottom:2px;
+
+	line-height: 2.5em;
 
 	@include transition(all .2s linear);
 
@@ -9,7 +11,7 @@ a {
 		border-bottom: 5px solid $link-passive-color;
 		background-color: lighten( $link-passive-color, 12.5);
 
-		&:hover {
+		&:hover, &:active {
 			
 			border-color: $internal-active-color;
 			background-color: lighten( $internal-active-color, 35);
@@ -20,7 +22,7 @@ a {
 	&.external {
 		border-bottom: 5px solid $link-passive-color;
 
-		&:hover {
+		&:hover, &:active {
 
 			border-color: $external-active-color;
 			background-color: lighten( $external-active-color, 35);
@@ -35,3 +37,4 @@ a {
 		
 	}
 }
+
