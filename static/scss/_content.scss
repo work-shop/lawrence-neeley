@@ -166,7 +166,7 @@
 	cursor:pointer;
 	
 	&:not(.active):hover {
-		opacity: .4;
+		opacity: .5;
 	}
 
 	&.active {
@@ -178,27 +178,27 @@
 	h1 {
 		@extend .regular;
 		@extend .mb1;
-		@extend .mt2;
+		@extend .mt3;
 		font-size: 1.5em;
 	}
 
 	h2 {
 		@extend .regular;
 		@extend .mb1;
-		@extend .mt2;
+		@extend .mt3;
 		font-size: 1.2em;
 	}
 
 	h3 {
 		@extend .regular;
 		@extend .mb2;
-		@extend .mt2;
+		@extend .mt3;
 		font-size: 1em; 
 	}
 
 	h4 {
 		@extend .regular;
-		@extend .mb2;
+		@extend .mb3;
 		font-size: .9em;
 	}
 
@@ -272,18 +272,42 @@
 
 	overflow: scroll;
 
-	@include transition(opacity $short-duration ease-in);
+	@include transition(all $short-duration ease-in);
+
+	&:not(.active):hover {
+		opacity: .3;
+		overflow: hidden;
+	}
 
 	&.active {
 		opacity: 1;
 		z-index: 500;
 		cursor: ns-resize;
+
+		&:hover {
+			opacity:1;
+			overflow: scroll;
+		}
 	}
 
-	&:not(.active):hover {
-		opacity: .4;
+	&.focused {
+		opacity: 1;
+		z-index: 500;
+		@include span-columns( 12 );
+
+		&:hover {
+			opacity:1;
+			overflow: scroll;
+		}
+
+		ul li .caption {
+			display: block;
+		}
+
 	}
 
+
+	
 
 	ul {
 		width:100%;
@@ -292,6 +316,12 @@
 
 		li {
 			@extend .mb2;
+
+			.caption {
+				display: none;
+				@extend .m0;
+				@extend .lefted;
+			}
 		}
 
 		img {
@@ -301,8 +331,15 @@
 	}
 }
 
+.content-text.wide-images {
+	position: static;
+}
+
 .content-images.wide {
-	@include span-columns( 8 );
+
+	position: static;
+
+	@include span-columns( 12 );
 }
 
 
