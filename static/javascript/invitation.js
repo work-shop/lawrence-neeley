@@ -35,8 +35,6 @@ function invitationMouseout() {
 }
 
 function invitationHandlers( active ) {
-	console.log( "invitationHandlers" );
-	console.log( active );
 
 	if ( typeof active == "undefined" ) {
 
@@ -47,9 +45,6 @@ function invitationHandlers( active ) {
 		store.set(activeKey, active);
 
 	}
-
-	console.log( active );
-	console.log( store.get( activeKey ) );
 
 	if ( active  ) {
 
