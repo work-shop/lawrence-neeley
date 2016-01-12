@@ -3,13 +3,24 @@ a, .title {
 	text-decoration: none;
 	padding-bottom:2px;
 
-	line-height: 2.5em;
+	padding-left:2px;
+	padding-right:2px;
+
+	border-bottom: 5px solid $link-passive-color;
+
+	&:hover, &:active {
+
+		border-color: $external-active-color;
+		background-color: lighten( $external-active-color, 35);
+
+	}
 
 	@include transition(all .2s linear);
 
 	&.internal {
 		border-bottom: 5px solid $link-passive-color;
 		background-color: lighten( $link-passive-color, 12.5);
+		line-height: 2.5em;
 
 		&:hover, &:active {
 			
@@ -18,17 +29,7 @@ a, .title {
 
 		}
 	}
-
-	&.external {
-		border-bottom: 5px solid $link-passive-color;
-
-		&:hover, &:active {
-
-			border-color: $external-active-color;
-			background-color: lighten( $external-active-color, 35);
-
-		}
-	}
+	
 
 	&.active {
 
