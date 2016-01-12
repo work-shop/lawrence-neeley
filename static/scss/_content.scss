@@ -163,9 +163,16 @@
 
 	@include transition(opacity $short-duration ease-in);
 
+	cursor:pointer;
+	
+	&:not(.active):hover {
+		opacity: .4;
+	}
+
 	&.active {
 		opacity: 1;
 		z-index: 500;
+		cursor:default;
 	}
 
 	h1 {
@@ -259,6 +266,8 @@
 	top: 0; right: 0;
 	opacity: .15;
 
+	cursor: pointer;
+
 	z-index: 100;
 
 	overflow: scroll;
@@ -268,14 +277,18 @@
 	&.active {
 		opacity: 1;
 		z-index: 500;
+		cursor: ns-resize;
 	}
+
+	&:not(.active):hover {
+		opacity: .4;
+	}
+
 
 	ul {
 		width:100%;
 		list-style: none;
 		margin: 0; padding: 0;
-
-		cursor: ns-resize;
 
 		li {
 			@extend .mb2;
@@ -293,16 +306,47 @@
 }
 
 
+@media screen and (max-width: $lg-break) {
+
+
+}
+
+@media screen and (max-width: $sm-break) {
+
+	article.content {
+		margin-top: 1em;
+	}
+
+	.content-text {
+		@include span-columns(12);
+
+		position: static;
+
+	}
+
+	.content-images, .content-images.wide {
+		@include span-columns(12);
+
+		position: static;
+
+		opacity: 1;
+
+		@include transition(opacity $short-duration ease-in);
+
+		&.active {
+			opacity: 1;
+			z-index: 500;
+		}
+
+	}
+
+
+}
+
+@media screen and (max-width: $xs-break) {
 
 
 
-
-
-
-
-
-
-
-
+}
 
 

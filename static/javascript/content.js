@@ -2,7 +2,7 @@ var jQuery = require( 'jquery' );
 var $ = jQuery;
 
 $('.content-images')
-	.on('mouseover', function() {
+	.on('click', function() {
 
 		$('.content-body').removeClass('active');
 		$('.content-images').addClass('active');
@@ -10,7 +10,7 @@ $('.content-images')
 	});
 
 $('.content-body')
-	.on('mouseover', function() {
+	.on('click', function() {
 
 		$('.content-images').removeClass('active');
 		$('.content-body').addClass('active');
