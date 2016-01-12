@@ -99,6 +99,24 @@
 }
 
 
+
+/**
+ * These styles turn any element into a fullscreen overlay field
+ */
+.overlay {
+
+	position:fixed;
+
+	width:100%;
+
+	height:100%;
+
+	background-color:$body-bg-color;
+
+	z-index:1000;
+
+}
+
 /**
  * These selectors deal with coloring elements.
  */
