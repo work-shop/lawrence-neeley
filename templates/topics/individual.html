@@ -24,9 +24,11 @@
           <ol id="topic-definitions">
           {% for term in item.definitions %}
 
-          <li class="{% if term.definition_heading %}topic-definition-heading{% endif %} topic-definition mb1">
-            {% if term.definition_heading %}<h4 class="light">{{ term.definition_heading }}</h4>{% endif %}
-            <h5 class="light">{{ term.definition }}</h5>
+          <li class="topic-definition mb1">
+            <h5 class="light">
+              {% if term.definition_heading %}<span class="bold">{{ term.definition_heading }}</span>{% endif %}
+              {{ term.definition }}
+            </h5>
           </li>
 
           {% endfor %}
