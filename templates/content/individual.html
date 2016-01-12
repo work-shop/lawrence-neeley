@@ -2,6 +2,8 @@
 
 {% import "templates/partials/nav.html" as nav %}
 
+
+
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
@@ -48,6 +50,8 @@
   {% endif %}
   
 </article>
+
+{{ nav.invitation() }}
 
 {% endblock %}
 

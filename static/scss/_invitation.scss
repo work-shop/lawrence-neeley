@@ -21,6 +21,10 @@
 		border-color: $invitation-color;
 		background-color: lighten( $invitation-color, 30);
 	}
+
+	&:focus {
+		outline: 0;
+	}
 }
 
 #invitation {
@@ -50,5 +54,27 @@
 
 .off {
 	opacity: 0;
+}
+
+
+@media screen and (min-width: $lg-break) {
+
+}
+
+@media screen and (max-width: $lg-break ) {
+
+}
+
+
+@media screen and (max-width: $sm-break) {
+	
+}
+
+@media screen and (max-width: $xs-break) {
+	
+	#invitation-button, #invitation {
+		display:none;
+	}
+
 }
 
