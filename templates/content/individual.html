@@ -9,7 +9,7 @@
 
 <article id="{{ item.name|lower|replace(' ', '-', 'g') }}" class="container content mt4">
   
-  <section class="content-text">
+  <section class="content-text {% if !item.body %} wide-images {% endif %}">
     <section class="content-header mb2">
       <h5 class="light gray">{{ item.publish_date|date('m . d . y') }}</h5>
       <h1 class="mb1">{{ a.internal( item ) }}</h1>
@@ -33,12 +33,13 @@
 
 
   {% if item.images|size > 0 %}
-  <section class="eighty content-images {% if !item.body %}active wide{% endif %}">
+  <section class="{% if item.body %}eighty{% endif %} content-images {% if !item.body %}active wide{% endif %}">
     <ul class="content-images-list">
       {% for image in item.images %}
 
       <li class="content-image">
         <img src="{{ image|imageSize(1000,auto)}}" />
+        {% if image.caption %}<p class="caption small">{{ image.caption }}</p> {% endif%}
       </li>
 
       {% endfor %}
@@ -48,4 +49,8 @@
   
 </article>
 
+{% endblock %}
+
+{% block scripts_extra %}
+  <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
