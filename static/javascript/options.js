@@ -1,6 +1,8 @@
 module.exports = {
 	delay: 750,
 	statement: {
-		offset: 40
+		offsetTop: 30,
+		margin: 40,
+		transitionDuration: 100
 	}
 };

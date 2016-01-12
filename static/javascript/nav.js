@@ -1,15 +1,63 @@
 var $ = require('jquery');
-var statementOffset = require('./options').statement.offset;
+
+var statementOffset = require('./options').statement.offsetTop;
+var statementSlideDuration = require('./options').statement.transitionDuration;
+var statementMargin = require('./options').statement.margin;
+
+function positionStatementCaptionTop( element ) {
+
+	var subtract = $('nav').offset( ).top - element.parent('span').offset().top;
+
+	element.css({
+		top: $('nav').height() + subtract + statementOffset
+	});
+
+}
+
+function positionStatementCaptionLeft( element ) {
+
+	var elementExtents = element.offset().left + element.width() + statementMargin;
+
+	var windowExtents = window.innerWidth;
+
+	var elementPadding = statementMargin - element.offset().left;
+
+	var left = 0;
+
+	if (  elementExtents >= windowExtents ) {
+
+		console.log( "recompute right!" );
+
+		left = windowExtents - elementExtents;
+
+	} else if ( elementPadding > 0 ) {
+
+		console.log( "recompute left !" );
+
+		left = elementPadding;
+
+	} else {
+
+		console.log( "reset!" );
+
+	}
+
+
+	element.animate({
+
+		left: left
+
+	}, statementSlideDuration);
+
+
+}
 
 function positionStatementCaption() {
 	$('#home .statement-link').parent('span').find('.statement-caption')
 		.each( function() {
 
-			var subtract = $('nav').offset( ).top - $(this).parent('span').offset().top;
-
-			$(this).css({
-				top: $('nav').height() + subtract + statementOffset
-			});
+			positionStatementCaptionTop( $( this ) );
+			positionStatementCaptionLeft( $( this ) );
 
 		});
 }
