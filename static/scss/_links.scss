@@ -22,20 +22,25 @@ a, .title {
 		background-color: lighten( $link-passive-color, 12.5);
 		line-height: 2.5em;
 
-		&:hover, &:active {
+		&:hover, &:active, &.active {
 			
 			border-color: $internal-active-color;
 			background-color: lighten( $internal-active-color, 35);
 
 		}
 	}
-	
 
-	&.active {
+	&.invisible {
 
-		border-color: $internal-active-color;
-		background-color: lighten( $internal-active-color, 35);
-		
+		text-decoration: none;
+
+		padding:0px;
+
+		border:none;
+
 	}
+
+
+	
 }
 

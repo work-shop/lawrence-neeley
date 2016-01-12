@@ -8,7 +8,7 @@
 
 	ol, ul {
 		padding: 0;
-	} 
+	}
 }
 
 .content-card-left {
@@ -109,6 +109,17 @@
 }
 
 @media screen and (max-width: $xs-break) {
+
+	.content-card:before {
+		position: relative;
+		left:-36px;
+		top:100px;
+
+		color:$link-passive-color;
+		font-size:36px;
+
+		content:"–";
+	} 
 
 	.content-card-summary {
 		display: none;

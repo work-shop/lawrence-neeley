@@ -1,7 +1,9 @@
 {% import "templates/partials/anchors.html" as a %}
 
 {% macro card( content, position ) %}
+		
 		<article id="{{ content.name|lower|replace(' ', '-', g) }}" class="content-card content-card-{{ position }}">
+			
 
 
 			<div class="content-card-title">
@@ -33,5 +35,7 @@
 			</ul>
 			{% endif %}
 
+			
 		</article>
+		
 {% endmacro %}
