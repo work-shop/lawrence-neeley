@@ -1,3 +1,6 @@
 module.exports = {
-	delay: 750
+	delay: 750,
+	statement: {
+		offset: 40
+	}
 };
