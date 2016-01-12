@@ -21,6 +21,10 @@
 
 }
 
+.content-card-below:nth-child(2) {
+	@include omega();
+}
+
 .content-card-title {
 	width:50%;
 	line-height: 2em;
@@ -81,9 +85,7 @@
 
 @media screen and (max-width: $sm-break) {
 
-	.content-card-summary {
-		display: none;
-	}
+
 
 	.content-card-image-list {
 	
@@ -100,7 +102,6 @@
 	}
 
 
-
 	.content-card-title {
 		width:100%;
 	}
@@ -108,6 +109,10 @@
 }
 
 @media screen and (max-width: $xs-break) {
+
+	.content-card-summary {
+		display: none;
+	}
 
 }
 
