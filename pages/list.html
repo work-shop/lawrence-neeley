@@ -1,0 +1,44 @@
+{% import "templates/partials/nav.html" as nav %}
+
+{% import "templates/partials/content-cards.html" as content %}
+
+{% import "templates/partials/topic-cards.html" as topic %}
+
+{% extends "templates/partials/base.html" %}
+
+{% block body_attributes %}class="page-list"{% endblock %}
+
+{% block content %}
+
+<article id="list" class="container">
+
+	<section id="list-topics">
+		<ul>
+			{% for item in cms.topics %}
+			<li class="list-topic-card mt4">
+
+				{{ topic.card( item, 'list' ) }}
+
+			</li>
+			{% endfor %}
+		</ul>
+		
+	</section>
+
+	<section id="list-content">
+		<ul>
+		{% for item in cms.content %}
+		<li class="list-content-card"> 
+
+			{{ content.card(item, 'list' ) }}
+			
+		</li>
+		{% endfor %}
+		</ul>
+	</section>
+
+</article>
+
+{{ nav.invitation() }}
+
+{% endblock %}

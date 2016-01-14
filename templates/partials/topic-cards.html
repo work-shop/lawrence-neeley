@@ -1,0 +1,28 @@
+{# ----------------------------------------------------- #}
+
+{# TOPIC CARD MACROS #}
+
+{# ----------------------------------------------------- #}
+
+{% macro card( topic, attribute ) %}
+
+	{% import 'templates/partials/anchors.html' as a %}
+
+	<article class="topic-card topic-card-{{ attribute }}">
+		<div class="topic-card-title">
+
+			<h3>{{ a.internal( topic, attribute ) }}</h3>
+			
+		</div>
+
+		<div class="topic-card-meta">
+			<p class="small topic-card-meta-summary">
+				{{ topic.summary }}
+			</p>
+			<h6 class="italic small topic-card-meta-count">
+				{{topic.content_topics|size}} Note{{ topic.content_topics|size|pluralize('s')}}.
+			</h6>
+		</div>
+	</article>
+
+{% endmacro %}

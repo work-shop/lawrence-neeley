@@ -1,0 +1,22 @@
+#list {
+	position: relative;
+	#list-topics {
+		position: relative;
+		top:0; left:0;
+		@include span-columns(4 of 12);
+	}
+
+	#list-content {
+		position: relative;
+		top:0;left:0;
+		@include shift(1 of 12);
+		@include span-columns(7 of 12);
+		@include omega();
+	}
+
+	ul {
+		padding:0;
+		list-style:none;
+	}
+
+}
