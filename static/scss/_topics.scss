@@ -10,6 +10,19 @@
 	@include span-columns(12 of 12);
 }
 
+#topic-subtopics {
+	@include span-columns(12 of 12);
+
+	ul {
+		padding:0;
+
+		.plus {
+			padding-left: .5em;
+			padding-right: .15em;
+		}
+	}
+}
+
 #topic-stamp {
 
 	@include span-columns(5 of 12);
