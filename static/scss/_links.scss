@@ -40,6 +40,16 @@ a, .title {
 		border:none;
 
 	}
+
+	&.footer {
+		border:none;
+		color:$link-passive-color;
+
+		&:hover, &:active {
+			color:$internal-active-color;
+			background-color: transparent;
+		}
+	}
 	
 }
 

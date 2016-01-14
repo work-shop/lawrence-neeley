@@ -1,0 +1,57 @@
+footer {
+	@extend .mt4;
+
+	.footer-link {
+		@include span-columns( 1 of 12 );
+
+		&:nth-child(1) {
+			@include span-columns( 2 of 12 );
+			@include shift( 1 of 15 );
+		}
+	}
+}
+
+@media screen and (min-width: $lg-break) {
+
+
+}
+
+@media screen and (max-width: $lg-break ) {
+
+	footer {
+		margin-top: 1em;
+
+		.footer-link {
+			@include span-columns( 2 of 12 );
+
+			&:nth-child(1) {
+				@include span-columns( 3 of 12 );
+				@include shift( 1 of 16 );
+				display: block;
+			}
+		}
+
+	}
+}
+
+
+@media screen and (max-width: $sm-break) {
+	footer {
+		margin-top: 0em;
+
+		.footer-link {
+			display: none;	
+		
+			&:nth-child(1) {
+				@include span-columns( 6 of 12 );
+				@include shift( 0 of 12 );
+				display: block;
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width: $xs-break) {
+
+}
