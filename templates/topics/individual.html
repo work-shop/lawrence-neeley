@@ -1,3 +1,9 @@
+{# ----------------------------------------------------------- #}
+
+{# TOPICS INDIVIDUAL #}
+
+{# ----------------------------------------------------------- #}
+
 {% import "templates/partials/nav.html" as nav %}
 
 {% import "templates/partials/anchors.html" as a %}
@@ -13,10 +19,23 @@
 {% block content %}
 
 
-  <article id="topic-container" class="container pb6">
+  <article id="topic-container" class="container pb3">
     <section id="topic">
 
       <div id="topic-name"><h2 class="mb1">{{ a.internal( item, 'active bold' ) }}</h2></div>
+
+      {% if item.subtopics %}
+      <div id="topic-subtopics">
+      <ul>
+        <li class="inline h6">Subtopic{{ item.subtopics|size|pluralize('','s')}}:</li>
+        {% for subtopic in item.subtopics %}
+
+        <li class="inline h6">{{ a.internal( subtopic, 'bold' ) }}{% if loop.index != item.subtopics|size %}<span class="plus bold">+</span>{% endif %}</li>
+
+        {% endfor %}
+      </ul>
+      </div>
+      {% endif %}
 
       <div id="topic-stamp">
 

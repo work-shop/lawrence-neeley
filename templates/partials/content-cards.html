@@ -1,7 +1,8 @@
-{% import "templates/partials/anchors.html" as a %}
 
 {% macro card( content, position ) %}
-		
+
+		{% import "templates/partials/anchors.html" as a %}
+
 		<article id="{{ content.name|lower|replace(' ', '-', g) }}" class="content-card content-card-{{ position }}">
 			
 

@@ -9,7 +9,7 @@
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
 
-<article id="{{ item.name|lower|replace(' ', '-', 'g') }}" class="container content mt4">
+<article id="{{ item.name|lower|replace(' ', '-', 'g') }}" class="container content mt4 pb3">
   
   <section class="content-text {% if !item.body %} wide-images {% endif %}">
     <section class="content-header mb2">
