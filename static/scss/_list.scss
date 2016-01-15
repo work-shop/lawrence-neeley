@@ -4,6 +4,8 @@
 		position: relative;
 		top:0; left:0;
 		@include span-columns(4 of 12);
+
+		z-index:250;
 	}
 
 	#list-content {
@@ -12,6 +14,11 @@
 		@include shift(1 of 12);
 		@include span-columns(7 of 12);
 		@include omega();
+		z-index:200;
+	}
+
+	.list-header {
+
 	}
 
 	ul {
@@ -19,4 +26,35 @@
 		list-style:none;
 	}
 
+}
+
+svg#list-topic-network {
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height:100%;
+
+	z-index:-150;
+
+	.node {
+		fill:lighten( $internal-active-color, 30);
+		stroke:$internal-active-color;
+		z-index:200;
+
+		&.source {
+			stroke-width:1px;
+		}
+
+		&.target {
+			stroke-width:1px;
+		}
+
+	}
+
+	.arc {
+		stroke:$internal-active-color;
+		stroke-width:1px;
+		z-index:100;
+	}
 }

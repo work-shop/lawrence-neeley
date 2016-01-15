@@ -1,5 +1,8 @@
 var $ = require('jquery');
+var d3 = require('d3');
 var offsetScales = require('./options').listOffsets;
+
+var port = { dispatch: d3.dispatch('networkRepaint') };
 
 if ( $(document.body).hasClass('page-list') ) {
 
@@ -12,21 +15,29 @@ if ( $(document.body).hasClass('page-list') ) {
 
 			$('a.internal').not('a.internal[href=\"'+ href +'\"]').not('.content-link').removeClass('active');
 
+			$('a.internal').parents('li').removeClass('active');
+
 			$('a.internal[href=\"'+ href +'\"]').addClass('active');
+			
+			$('a.internal[href=\"'+ href +'\"]').parents('li').addClass('active');
+
+			port.dispatch.networkRepaint();
 
 		} 
 
 	});
 
 	$(document).on('mousewheel', function( event ) {
-		//event.preventDefault();
 
 		var dY = -event.originalEvent.deltaY;
 
 		var translateTopics = dY * offsetScales.topics - dY;
 		var translateContent = dY * offsetScales.content - dY;
 
-		if ( $('#list-topics').position().top + offsetScales.topics * dY < 0 ) {
+		var topicsMaxTranslation = $('#list-topics').height() * offsetScales.topics - $('#list-topics').height();
+
+		if ( 	$('#list-topics').position().top + translateTopics < 0 && 
+			$('#list-topics').position().top + translateTopics > -topicsMaxTranslation ) {
 
 			$('#list-topics').css({
 				top: $('#list-topics').position().top + translateTopics + "px"
@@ -38,7 +49,10 @@ if ( $(document.body).hasClass('page-list') ) {
 
 		}
 
+		port.dispatch.networkRepaint();
 
 	});
 
 }
+
+module.exports = port;

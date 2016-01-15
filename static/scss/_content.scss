@@ -299,6 +299,9 @@
 	top: 0; right: 0;
 	opacity: .15;
 
+	border-top: 1px solid $body-base-color;
+	border-bottom:  1px solid $body-base-color;
+
 	cursor: pointer;
 
 	z-index: 100;
@@ -354,6 +357,15 @@
 				display: none;
 				@extend .m0;
 				@extend .lefted;
+			}
+
+			&:first-child {
+				border-top:none;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+				border-bottom:none;
 			}
 		}
 

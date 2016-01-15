@@ -1,3 +1,9 @@
+{# ----------------------------------------------------------- #}
+
+{# LIST PAGE #}
+
+{# ----------------------------------------------------------- #}
+
 {% import "templates/partials/nav.html" as nav %}
 
 {% import "templates/partials/content-cards.html" as content %}
@@ -12,10 +18,13 @@
 
 <article id="list" class="container">
 
+	<svg id="list-topic-network"></svg>
+
 	<section id="list-topics">
+		<h1 class="list-header light">Topics</h1>
 		<ul>
 			{% for item in cms.topics %}
-			<li class="list-topic-card mt4">
+			<li data-network-source="{{item.name|lower|replace(' ', '-', 'g')}}" class="list-topic-card mt4">
 
 				{{ topic.card( item, 'list' ) }}
 
@@ -26,9 +35,12 @@
 	</section>
 
 	<section id="list-content">
+		<h1 class="list-header light">Content</h1>
 		<ul>
 		{% for item in cms.content %}
-		<li class="list-content-card"> 
+
+
+		<li data-network-targets="{% for topic in item.topics %}{{topic.name|lower|replace(' ','-','g')}},{% endfor%}*" class="list-content-card"> 
 
 			{{ content.card(item, 'list' ) }}
 			
