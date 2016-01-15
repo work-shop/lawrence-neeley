@@ -28,7 +28,7 @@
 
 			{% if content.images %}
 			<ul class="content-card-image-list">
-				{% for image in content.images %}
+				{% for image in content.images|slice(0,2) %}
 				<li class="content-card-image-item">
 					<img src="{{ image|imageSize(100,auto) }}" />
 				</li>
