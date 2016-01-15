@@ -58,13 +58,13 @@
 
       <div id="topic-content-left" >
 
-          {{ content.card( item.content_topics|first, "left" ) }}
+          {{ content.card( item.content_topics|sort('publish_date', true)|first, "left" ) }}
         
       </div>
 
       <div id="topic-content-below" class="mt2">
 
-        {% for contentItem in item.content_topics|slice(1, item.content_topics|size ) %}
+        {% for contentItem in item.content_topics|sort('publish_date', true)|slice(1, item.content_topics|size ) %}
 
           {{ content.card( contentItem, "below" ) }}
 
