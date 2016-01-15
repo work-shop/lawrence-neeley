@@ -1,3 +1,9 @@
+body.home {
+	footer {
+		display: none;
+	}
+}
+
 footer {
 	@extend .mt4;
 
@@ -24,7 +30,7 @@ footer {
 		.footer-link {
 			@include span-columns( 2 of 12 );
 
-			&:nth-child(1) {
+			&:first-child {
 				@include span-columns( 3 of 12 );
 				@include shift( 1 of 16 );
 				display: block;

@@ -1,10 +1,16 @@
+{# ----------------------------------------------------------- #}
 
+{# INDEX PAGE #}
+
+{# ----------------------------------------------------------- #}
 
 {% import "templates/partials/nav.html" as nav %}
 
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{% parent %}{% endblock %}
+
+{% block body_attributes %}class="home"{% endblock %}
 
 {% block content %}
 
