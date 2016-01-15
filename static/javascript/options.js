@@ -8,5 +8,11 @@ module.exports = {
 	listOffsets: {
 		topics: 1.3,
 		content: 0.75
+	},
+	network: {
+		radii: {
+			source: 7,
+			target: 5
+		}
 	}
 };
