@@ -18,7 +18,7 @@ if ( $(document.body).hasClass('page-list') ) {
 			$('a.internal').parents('li').removeClass('active');
 
 			$('a.internal[href=\"'+ href +'\"]').addClass('active');
-			
+
 			$('a.internal[href=\"'+ href +'\"]').parents('li').addClass('active');
 
 			port.dispatch.networkRepaint();
@@ -34,10 +34,9 @@ if ( $(document.body).hasClass('page-list') ) {
 		var translateTopics = dY * offsetScales.topics - dY;
 		var translateContent = dY * offsetScales.content - dY;
 
-		var topicsMaxTranslation = $('#list-topics').height() * offsetScales.topics - $('#list-topics').height();
 
 		if ( 	$('#list-topics').position().top + translateTopics < 0 && 
-			$('#list-topics').position().top + translateTopics > -topicsMaxTranslation ) {
+			$('footer').offset().top > $(window).scrollTop() + window.innerHeight ) {
 
 			$('#list-topics').css({
 				top: $('#list-topics').position().top + translateTopics + "px"

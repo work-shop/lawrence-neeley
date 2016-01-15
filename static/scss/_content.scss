@@ -77,8 +77,15 @@
 
 //----------------- .content-card-list scope -----------
 
-.content-card-list {
+.list-content-card {
 	@include span-columns(4 of 8);
+
+	&.active {
+		.content-card-title h5 a {
+			border-color: $internal-active-color;
+			background-color: lighten( $internal-active-color, 35);
+		}
+	}
 	
 	&:nth-child(2n+0) {
 		// @include shift(1 of 7);
@@ -102,6 +109,10 @@
 		p {
 			display: none;
 		}
+	}
+
+	.content-card-topic-list {
+		display: none;
 	}
 }
 
