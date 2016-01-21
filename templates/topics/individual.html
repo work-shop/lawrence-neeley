@@ -27,10 +27,10 @@
       {% if item.subtopics %}
       <div id="topic-subtopics">
       <ul>
-        <li class="inline h6">Subtopic{{ item.subtopics|size|pluralize('','s')}}:</li>
+        <li class="inline h6">Related:</li>
         {% for subtopic in item.subtopics %}
 
-        <li class="inline h6">{{ a.internal( subtopic, 'bold' ) }}{% if loop.index != item.subtopics|size %}<span class="plus bold">+</span>{% endif %}</li>
+        <li class="inline h6">{{ a.internal( subtopic, 'bold' ) }}{% if loop.index != item.subtopics|size %}<span class="comma bold">,</span>{% endif %}</li>
 
         {% endfor %}
       </ul>
@@ -60,7 +60,7 @@
 
           {% if item.content_topics|size > 0 %}
 
-            {{ content.card( item.content_topics|sort('publish_date', true)|first, "left" ) }}\
+            {{ content.card( item.content_topics|sort('publish_date', true)|first, "left" ) }}
 
           {% endif %}
         
