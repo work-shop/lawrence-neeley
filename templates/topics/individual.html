@@ -58,17 +58,25 @@
 
       <div id="topic-content-left" >
 
-          {{ content.card( item.content_topics|sort('publish_date', true)|first, "left" ) }}
+          {% if item.content_topics|size > 0 %}
+
+            {{ content.card( item.content_topics|sort('publish_date', true)|first, "left" ) }}\
+
+          {% endif %}
         
       </div>
 
       <div id="topic-content-below" class="mt2">
+
+        {% if item.content_topics|size > 0 %}
 
         {% for contentItem in item.content_topics|sort('publish_date', true)|slice(1, item.content_topics|size ) %}
 
           {{ content.card( contentItem, "below" ) }}
 
         {% endfor %}
+
+        {% endif %}
         
       </div>
       
