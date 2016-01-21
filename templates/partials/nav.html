@@ -1,5 +1,7 @@
 {% macro statement() %}
 
+{% import "templates/partials/anchors.html" as a %}
+
 <nav id="statement">
 
 	<span class="statement-element block">
@@ -21,11 +23,7 @@
 
 		<span class="statement-element block"> 
 
-		{% if phrase.linked_topic %}<a class="statement-link internal {% if getCurrentUrl() == url( phrase.linked_topic ) %}active{% endif %}" href="{{ url( phrase.linked_topic ) }}" {% if phrase.linked_topic.invitation %}data-invitation="{{ phrase.linked_topic.invitation }}"{% endif %}>{% endif %}
-		
-		{{ phrase.display_text }} 
-
-		{% if phrase.linked_topic %}</a>{% endif %}
+		{% if phrase.linked_topic %}<a class="statement-link internal {% if getCurrentUrl() == url( phrase.linked_topic ) %}active{% endif %}" href="{{ url( phrase.linked_topic ) }}" {% if phrase.linked_topic.invitation %}data-invitation="{{ phrase.linked_topic.invitation }}"{% endif %}>{% endif %}{{ phrase.display_text }}{% if phrase.linked_topic %}</a>{% endif %}
 
 			{% if phrase.linked_topic %}
 			<span id="{{ phrase.linked_topic.name|lower|replace(' ', '-', g) }}" class="h5 statement-caption off">
