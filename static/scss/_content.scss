@@ -21,8 +21,8 @@
 .content-card-below {
 	@include span-columns( 5 of 10 );
 
-	&:nth-child(2) {
-		@include omega();
+	&:nth-child(2n+0) {
+		@include omega(2n);
 	}
 
 }
@@ -34,6 +34,8 @@
 }
 
 .content-card-topic-list, .content-topic-list {
+	width:80%;
+	
 	list-style: none;
 	padding: 0;
 
