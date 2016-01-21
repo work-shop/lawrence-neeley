@@ -13,7 +13,9 @@
   
   <section class="content-text {% if !item.body %} wide-images {% endif %}">
     <section class="content-header mb2">
-      <h5 class="light gray">{{ item.publish_date|date('m . d . y') }}</h5>
+      {% if item.publish_date %}
+        <h5 class="light gray">{{ item.publish_date|date('m . d . y') }}</h5>
+      {% endif %}
       <h1 class="mb1">{{ a.internal( item ) }}</h1>
       <ul class="content-topic-list">
       {% for topic in item.topics %}
