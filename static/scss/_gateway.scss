@@ -1,0 +1,70 @@
+#site-gateway {
+	@include shift( 4 of 12 );
+	@include span-columns(4 of 12);
+	@include omega();
+
+	background-color: white;
+
+	position: fixed;
+	padding:2em;
+	border:1px solid $body-base-color;
+	z-index:2000;
+
+	top:50vh;
+	@include transform( translateY( -50% ) );
+
+	.error {
+		color:$internal-active-color;
+	}
+
+	#site-gateway-password {
+		@include span-columns( 4 of 4 );
+		
+		margin-top:1em;
+		border:0px;
+		border-bottom: 5px solid $link-passive-color;
+		padding:.5em;
+		outline:none;
+
+		&:active, &:focus {
+			background-color: lighten( $link-passive-color, 12.5);
+			border-bottom: 5px solid darken( $link-passive-color, 12.5);
+		}
+
+	}
+
+	#site-gateway-submit {
+
+		@extend .internal;
+		@include span-columns( 2 of 4 );
+
+		border:0px;
+		margin-top:1em;
+		padding: .5em;
+
+		border-bottom: 5px solid $link-passive-color;
+		background-color: lighten( $link-passive-color, 12.5);
+
+		&:hover, &:active {
+			border-color: $internal-active-color;
+			background-color: lighten( $internal-active-color, 35);
+
+		}
+
+	}
+
+}	
+
+
+@media screen and (max-width: $sm-break) {
+
+	#site-gateway {
+
+		@include shift( 1 of 12 );
+		@include span-columns(10 of 12);
+		@include omega();
+
+	}	
+
+}
+
