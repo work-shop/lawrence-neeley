@@ -65,6 +65,7 @@ function recalculate() {
 
 $( document ).ready( function() {
 	$(window).on('resize', recalculate);
+	$(document).on('force-resize', recalculate);
 	recalculate();
 });
 
