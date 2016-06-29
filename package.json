@@ -19,6 +19,7 @@
     "cheerio": "~0.18.0",
     "colors": "~0.6.2",
     "connect-header": "0.0.5",
+    "crypto-js": "^3.1.6",
     "d3": "^3.5.12",
     "firebase": "1.0.2",
     "glob": "~3.2.8",
