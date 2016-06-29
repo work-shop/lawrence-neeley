@@ -46,16 +46,22 @@
 
       <div id="overlay" class="overlay"></div>
 
-      {% block header %}
-        {% include "templates/partials/header.html" %}
-      {% endblock %}
+      {% include 'templates/partials/site-gateway.html' %}
 
-      {# By default, your inner pages will load into this block. #}
-      {% block content %}{% endblock %}
+      <span id="content">
+        {% block header %}
+          {% include "templates/partials/header.html" %}
+        {% endblock %}
 
-      {% block footer %}
-        {% include "templates/partials/footer.html" %}
-      {% endblock %}
+        
+        {# By default, your inner pages will load into this block. #}
+        {% block content %}{% endblock %}
+       
+
+        {% block footer %}
+          {% include "templates/partials/footer.html" %}
+        {% endblock %}
+       </span>
 
       {# Put your JS in here and we'll minify it into one file. No CDN scripts. More info: #}
       {# http://www.webhook.com/docs/minify-your-js-and-css/ #}
@@ -70,6 +76,7 @@
 
       {# Google Analytics code. Feel free to remove. #}
       <script>
+        var hashed = "{{ cms.about.hashed_site_password }}";
         var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src='//www.google-analytics.com/ga.js';
